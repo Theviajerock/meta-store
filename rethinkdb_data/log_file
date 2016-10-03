@@ -1,0 +1,29 @@
+2016-09-28T19:58:07.641114957 0.008421s notice: Recursively removing directory /home/victor/workspace/meta_stores/rethinkdb_data/tmp
+2016-09-28T19:58:07.645341874 0.012651s notice: Initializing directory /home/victor/workspace/meta_stores/rethinkdb_data
+2016-09-28T19:58:07.645549315 0.012853s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/home/victor/workspace/meta_stores/rethinkdb_data' did not already exist or is empty.)
+2016-09-28T19:58:07.645611004 0.012915s notice: Running rethinkdb 2.3.5~0jessie (GCC 4.9.2)...
+2016-09-28T19:58:07.648855337 0.016163s notice: Running on Linux 3.16.0-4-amd64 x86_64
+2016-09-28T19:58:07.648961843 0.016266s notice: Loading data from directory /home/victor/workspace/meta_stores/rethinkdb_data
+2016-09-28T19:58:07.673713027 0.041018s info: Automatically using cache size of 1913 MB
+2016-09-28T19:58:07.674657553 0.041961s notice: Listening for intracluster connections on port 29015
+2016-09-28T19:58:07.678031317 0.045336s notice: Listening for client driver connections on port 28015
+2016-09-28T19:58:07.678335282 0.045639s notice: Listening for administrative HTTP connections on port 8080
+2016-09-28T19:58:07.678908155 0.046213s notice: Listening on cluster addresses: 127.0.0.1, 127.0.1.1, 192.168.122.1, 192.168.1.54, ::1, fe80::9eb7:dff:fea0:36d8%3
+2016-09-28T19:58:07.679283992 0.046588s notice: Listening on driver addresses: 127.0.0.1, 127.0.1.1, 192.168.122.1, 192.168.1.54, ::1, fe80::9eb7:dff:fea0:36d8%3
+2016-09-28T19:58:07.679552933 0.046856s notice: Listening on http addresses: 127.0.0.1, 127.0.1.1, 192.168.122.1, 192.168.1.54, ::1, fe80::9eb7:dff:fea0:36d8%3
+2016-09-28T19:58:07.679559993 0.046863s notice: Server ready, "ilujdebian_s5m" 943d624c-c569-4a9e-9ce3-0edefff22580
+2016-09-28T19:58:36.212901715 28.580206s info: Table 180d2be1-2952-4b4f-a7ba-76e2db13cd15: Starting a new Raft election for term 1.
+2016-09-28T19:58:36.213254458 28.580558s info: Table 180d2be1-2952-4b4f-a7ba-76e2db13cd15: Added replica on this server.
+2016-09-28T19:58:36.215700421 28.583004s info: Table 180d2be1-2952-4b4f-a7ba-76e2db13cd15: This server is Raft leader for term 1. Latest log index is 0.
+2016-09-28T19:58:55.874656368 48.241960s info: Table 96d76a72-4d16-44d1-b850-8cad6943be57: Starting a new Raft election for term 1.
+2016-09-28T19:58:55.874777002 48.242080s info: Table 96d76a72-4d16-44d1-b850-8cad6943be57: Added replica on this server.
+2016-09-28T19:58:55.877284464 48.244588s info: Table 96d76a72-4d16-44d1-b850-8cad6943be57: This server is Raft leader for term 1. Latest log index is 0.
+2016-09-29T17:52:07.954456153 9120.054049s warn: Some RethinkDB data on this server has been placed into swap memory. This may impact performance.
+2016-09-29T21:01:07.964200992 20460.063601s warn: Some RethinkDB data on this server has been placed into swap memory. This may impact performance.
+2016-09-30T05:40:48.888304091 28860.103212s warn: Some RethinkDB data on this server has been placed into swap memory. This may impact performance.
+2016-10-01T08:41:25.210459622 40860.097717s warn: Some RethinkDB data on this server has been placed into swap memory. This may impact performance.
+2016-10-01T14:18:40.722787232 61095.610045s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2016-10-01T14:18:40.723826814 61095.611084s notice: Shutting down client connections...
+2016-10-01T14:18:40.724516321 61095.611773s notice: All client connections closed.
+2016-10-01T14:18:40.724536398 61095.611792s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2016-10-01T14:18:40.798731353 61095.685988s notice: Storage engine shut down.
