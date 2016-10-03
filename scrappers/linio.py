@@ -46,6 +46,7 @@ def scrape_info_product(product_url, product_name, image_url, sub_url):
         product_images.append(image_product)
     final_object = {'category-title':category, 'subcategory-link':sub_url, 'product_name':product_name, 'product_images':product_images}
     print(final_object)
+    save_rethink(final_object)
 
 def save_rethink(final_object):
     r.connect('localhost', 28015).repl()
