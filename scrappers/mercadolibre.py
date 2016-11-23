@@ -12,13 +12,9 @@ def get_product(url):
     url_original = url
     pagination_text = '_Desde_'
     pagination = 1
+    soup = get_source_code(url)
     while True:
-        soup = get_source_code(url)
-        if soup.find('li', class_='list-view-item'):
-            continue
-            print('continue')
-        else:
-            break
+        print('1')
         products_list = soup.find_all('li', class_='list-view-item')
         count = 0
         for product in products_list:
@@ -47,12 +43,13 @@ def get_product(url):
                 print(product_object)
                 print('Product N' + str(count))
         pagination = pagination + 50
-        #url = url_original + pagination_text + str(pagination)
-        url = "http://notebooks.mercadolibre.com.co/accesorios/_Desde_47101"
+        url = url_original + pagination_text + str(pagination)
         print(url)
-
-
-
+        soup = get_source_code(url)
+        if soup.find('li', class_='list-view-item'):
+            continue
+        else:
+            break
 
 def scrape_product(url):
     soup = get_source_code(url)
