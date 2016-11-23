@@ -2,28 +2,55 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-def get_product(url):
+def get_subcategories(url):
     soup = get_source_code(url)
-    products_list = soup.find_all('li', class_='list-view-item')
-    for product in products_list:
-        if 'padItem' in product['class']:
+    subcategories = soup.find('div', class_='nav')
+    for subcat in subcategories:
+        url_sub = 'test'
+
+def get_product(url):
+    url_original = url
+    pagination_text = '_Desde_'
+    pagination = 1
+    while True:
+        soup = get_source_code(url)
+        if soup.find('li', class_='list-view-item'):
             continue
+            print('continue')
         else:
-            product_url = product.h2.a['href']
-            product_object = scrape_product(product_url)
-            sold_unknown = product.find('li', class_='extra-info-sold')
-            if sold_unknown is None:
-                sold = 0
+            break
+        products_list = soup.find_all('li', class_='list-view-item')
+        count = 0
+        for product in products_list:
+            if 'padItem' in product['class']:
+                continue
             else:
-                sold_unformatted = sold_unknown.text
-                sold_formatted = int(re.sub('[^\d]', '', sold_unformatted))
-                sold = sold_formatted
-            condition = product.find('li', class_='extra-info-condition').text
-            location = product.find('li', class_='extra-info-location').text
-            product_object['sold'] = sold
-            product_object['condition'] = condition
-            product_object['location'] = location
-            print(product_object)
+                count = count + 1
+                product_url = product.h2.a['href']
+                product_object = scrape_product(product_url)
+                sold_unknown = product.find('li', class_='extra-info-sold')
+                if sold_unknown is None:
+                    sold = 0
+                else:
+                    sold_unformatted = sold_unknown.text
+                    sold_formatted = int(re.sub('[^\d]', '', sold_unformatted))
+                    sold = sold_formatted
+                condition_unknown = product.find('li', class_='extra-info-condition')
+                if condition_unknown is None:
+                    condition = ""
+                else:
+                    condition = condition_unknown
+                location = product.find('li', class_='extra-info-location').text
+                product_object['sold'] = sold
+                product_object['condition'] = condition
+                product_object['location'] = location
+                print(product_object)
+                print('Product N' + str(count))
+        pagination = pagination + 50
+        #url = url_original + pagination_text + str(pagination)
+        url = "http://notebooks.mercadolibre.com.co/accesorios/_Desde_47101"
+        print(url)
+
 
 
 
