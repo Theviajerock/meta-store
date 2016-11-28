@@ -37,7 +37,11 @@ def get_product(url):
                     condition = ""
                 else:
                     condition = condition_unknown.text
-                location = product.find('li', class_='extra-info-location').text
+                location_unknown = product.find('li', class_='extra-info-location')
+                if location_unknown is None:
+                    location = ""
+                else:
+                    location = location_unknown.text
                 product_object['sold'] = sold
                 product_object['condition'] = condition
                 product_object['location'] = location
