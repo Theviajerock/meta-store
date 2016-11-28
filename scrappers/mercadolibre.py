@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+import rethinkdb as r
 
 def get_subcategories(url):
     soup = get_source_code(url)
@@ -64,3 +65,7 @@ def get_source_code(url):
     html = requests.get(url).text
     soup_source = BeautifulSoup(html, 'html.parser')
     return soup_source
+
+def save_rethink(final_object):
+    r.connect('localhost', 28015).repl()
+    r.db('test').table('products').insert(final_object).run()
