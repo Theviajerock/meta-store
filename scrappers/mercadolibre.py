@@ -42,6 +42,7 @@ def get_product(url):
                 product_object['condition'] = condition
                 product_object['location'] = location
                 print(product_object)
+                save_rethink(product_object)
                 print('Product N' + str(count))
         pagination = pagination + 50
         url = url_original + pagination_text + str(pagination)
