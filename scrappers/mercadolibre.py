@@ -66,7 +66,7 @@ def scrape_product(url):
     the product title and price
     """
     soup = get_source_code(url)
-    title = soup.find('h1', class_='vip-title-main ').text.strip()
+    title = check_text_element(soup.find('h1', class_='vip-title-main '))
     #The product_title class has two spaces at the end, if something doesn't work, check this.
     price = check_numb_element(soup.find('article', class_='vip-price ch-price'), 1)
     product_object = {'url':url, 'title':title, 'price':price}
@@ -91,7 +91,7 @@ def check_text_element(html_element):
     if html_element is None:
         return ""
     else:
-        return html_element.text
+        return html_element.text.strip()
 
 def check_numb_element(html_element, is_price=0):
     """Function that receives a html element, check if
