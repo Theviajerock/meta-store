@@ -30,7 +30,6 @@ def get_product(url, subcategorie_title, categorie_title):
     pagination = 1
     soup = get_source_code(url)
     while True:
-        print('1')
         products_list = soup.find_all('li', class_='list-view-item')
         count = 0
         for product in products_list:
