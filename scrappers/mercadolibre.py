@@ -78,7 +78,7 @@ def get_source_code(url):
     """Function that receive the url, then it get the
     source code and parse it into an python object"""
     data = requests.get(url)
-    print(url + data.status_code)
+    print(url + str(data.status_code))
     date = str(datetime.datetime.now())
     data_html = open('../../log/'+date, 'w')
     data_html.write(data.text)
