@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import rethinkdb as r
+import datetime
 
 def get_categories(url_categorie):
     #Function that receive the web url and get all the categories
@@ -77,8 +78,11 @@ def get_source_code(url):
     """Function that receive the url, then it get the
     source code and parse it into an python object"""
     data = requests.get(url)
-    if data.status_code is not 200 and data.status_code is not 404:
-        print(url + data.status_code)
+    print(url + data.status_code)
+    date = str(datetime.datetime.now())
+    data_html = open('../../log/'+date, 'w')
+    data_html.write(data.text)
+    data_html.close()
     html = data.text
     soup_source = BeautifulSoup(html, 'html.parser')
     return soup_source
