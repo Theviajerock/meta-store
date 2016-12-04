@@ -77,7 +77,7 @@ def get_source_code(url):
     """Function that receive the url, then it get the
     source code and parse it into an python object"""
     data = requests.get(url)
-    if data.status_code is not 200 or data.status.code is not 404:
+    if data.status_code is not 200 or data.status_code is not 404:
         print(url + " BAD")
         return 1
     html = data.text
