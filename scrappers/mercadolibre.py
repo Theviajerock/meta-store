@@ -79,10 +79,11 @@ def get_source_code(url):
     source code and parse it into an python object"""
     data = requests.get(url)
     print(url + str(data.status_code))
-    date = str(datetime.datetime.now())
-    data_html = open('../../log/'+date, 'w')
-    data_html.write(data.text)
-    data_html.close()
+    if data.status_code == 200 or data.status_code == 404:
+        date = str(datetime.datetime.now())
+        data_html = open('../../log/'+date, 'w')
+        data_html.write(data.text)
+        data_html.close()
     html = data.text
     soup_source = BeautifulSoup(html, 'html.parser')
     return soup_source
