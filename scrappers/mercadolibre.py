@@ -79,7 +79,7 @@ def get_source_code(url):
     source code and parse it into an python object"""
     data = requests.get(url)
     print(url + str(data.status_code))
-    if data.status_code == 200 or data.status_code == 404:
+    if data.status_code != 200 or data.status_code != 404:
         date = str(datetime.datetime.now())
         data_html = open('../../log/'+date, 'w')
         data_html.write(data.text)
